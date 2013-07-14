@@ -3,24 +3,39 @@
    ========================================================================== */
 
 /**
+ * Variables
+ *
+ * It is recommended to override these.
+ *
+ * 1. Component namespace.
+ * 2. The X part of an X:Y ratio.
+ * 3. The Y part of an X:Y ratio.
+ */
+
+$bits-components-ns: 'bits-' !default; /* 1 */
+$bits-flex-embed-ratios-x: (4 16 47) !default; /* 2 */
+$bits-flex-embed-ratios-y: (3 9 20) !default; /* 3 */
+
+/**
  * Flexible media embeds
  *
  * For use with media embeds – such as videos, slideshows, or even images –
  * that need to retain a specific aspect ratio but adapt to the width of their
  * containing element.
  *
- * Example HTML:
+ * --------------
+ * Example usage:
  *
  * <div class="FlexEmbed FlexEmbed--16by9">
- *     <iframe class="FlexEmbed-item" src="…"></iframe>
+ *   <iframe class="FlexEmbed-item" src="…"></iframe>
  * </div>
  *
  * <div class="FlexEmbed FlexEmbed--16by9">
- *     [iframe|object|embed|img]
+ *   [iframe|object|embed|img]
  * </div>
  */
 
-.FlexEmbed {
+.#{$bits-components-ns}FlexEmbed {
   position: relative;
   overflow: hidden;
   height: 0;
@@ -34,10 +49,10 @@
  * code.
  */
 
-.FlexEmbed-item,
-.FlexEmbed iframe,
-.FlexEmbed embed,
-.FlexEmbed object {
+.#{$bits-components-ns}FlexEmbed-item,
+.#{$bits-components-ns}FlexEmbed iframe,
+.#{$bits-components-ns}FlexEmbed embed,
+.#{$bits-components-ns}FlexEmbed object {
   position: absolute;
   left: 0;
   top: 0;
@@ -45,18 +60,31 @@
   height: 100%;
 }
 
-/**
- * Modifier: 16:9 aspect ratio
- */
-
-.FlexEmbed--16by9 {
-  padding-bottom: 56.25%;
-}
 
 /**
- * Modifier: 4:3 aspect ratio
+ * Modifiers with defined aspect ratios
+ *
+ * FlexEmbed--<X>by<Y>
+ *
+ * ---------------
+ * Output example:
+ *
+ * .FlexEmbed--4by3 {
+ *   padding-bottom: 75%;
+ * }
+
+ * .FlexEmbed--16by9 {
+ *   padding-bottom: 56.25%;
+ * }
  */
 
-.FlexEmbed--4by3 {
-  padding-bottom: 75%;
+$length: min(length($bits-flex-embed-ratios-x), length($bits-flex-embed-ratios-y));
+
+@for $i from 1 through $length {
+  $x: nth($bits-flex-embed-ratios-x, $i);
+  $y: nth($bits-flex-embed-ratios-y, $i);
+
+  .#{$bits-components-ns}FlexEmbed--#{$x}by#{$y} {
+    padding-bottom: (100 * ($y / $x)) + unquote("%");
+  }
 }
