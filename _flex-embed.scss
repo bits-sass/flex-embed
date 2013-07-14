@@ -85,6 +85,6 @@ $length: min(length($bits-flex-embed-ratios-x), length($bits-flex-embed-ratios-y
   $y: nth($bits-flex-embed-ratios-y, $i);
 
   .#{$bits-components-ns}FlexEmbed--#{$x}by#{$y} {
-    padding-bottom: (100 * ($y / $x)) + unquote("%");
+    padding-bottom: percentage($y / $x);
   }
 }
