@@ -1,20 +1,19 @@
-# Bits.scss flexible embed
+# Bits.sass flexible embed
 
 Component for responsive, intrinsic ratio embeds.
 
-Read more about [Bits.scss toolkit](https://github.com/bits-scss/bits.scss).
+Read more about [Bits.sass toolkit](https://github.com/bits-sass/bits.sass).
 
 ## Installation
 
-* __Bower:__ `bower install --save bits-scss-flex-embed`
-* __Download:__ [zip](https://github.com/bits-scss/flex-embed/zipball/master), [tar.gz](https://github.com/bits-scss/flex-embed/tarball/master)
-* __Git:__ `git clone https://github.com/bits-scss/flex-embed.git`
+* __Bower:__ `bower install --save bits-sass-flex-embed`
+* __Download:__ [zip](https://github.com/bits-sass/flex-embed/zipball/master), [tar.gz](https://github.com/bits-sass/flex-embed/tarball/master)
+* __Git:__ `git clone https://github.com/bits-sass/flex-embed.git`
 
 ## Available SASS variables
 
 * `bits-components-ns` - components namespace, defaults to 'bits-'
-* `bits-flex-embed-ratios-x` - list of `x` values in an `x:y` ratio (eg. 4, 16)
-* `bits-flex-embed-ratios-y` - list of `y` values in an `x:y` ratio (eg. 3, 9)
+* `bits-flex-embed-ratios` - list of x:y ratios
 
 ## Available classes
 
@@ -25,7 +24,7 @@ Read more about [Bits.scss toolkit](https://github.com/bits-scss/bits.scss).
 
 ## Usage
 
-Like many Bits.scss components, `bits-scss-flex-embed` relies on a base component class that is
+Like many Bits.sass components, `bits-sass-flex-embed` relies on a base component class that is
 extended by any number of additional modifier classes.
 
 ```html
@@ -38,13 +37,16 @@ extended by any number of additional modifier classes.
 </div>
 ```
 
-The `bits-scss-flex-embed` component can be extended with additional aspect ratios if your
+The `bits-sass-flex-embed` component can be extended with additional aspect ratios if your
 application makes use of multi-media embeds that require them. For example, to
-create a 2.35:1 aspect ratio, modify these variables:
+create a 2.35:1 aspect ratio, modify `bits-flex-embed-ratios` variable:
 
 ```scss
-$bits-flex-embed-ratios-x: (4 16 47) !default; /* 2 */
-$bits-flex-embed-ratios-y: (3 9  20) !default; /* 3 */
+$bits-flex-embed-ratios: (
+  (16, 9)
+  (4, 3)
+  (47, 20)
+);
 ```
 
 Alternatively, aspect ratios can be calculated programmatically and the

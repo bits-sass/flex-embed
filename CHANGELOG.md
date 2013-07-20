@@ -1,5 +1,10 @@
 === HEAD
 
+=== 0.3.0 (July 20, 2013)
+
+* Rename organization's name to 'Bits.sass'
+* Replace `bits-flex-embed-ratios-(x|y)` with just `bits-flex-embed-ratios`
+
 === 0.2.1 (July 15, 2013)
 
 * Use percentage fn
