@@ -1,5 +1,7 @@
 === HEAD
 
+* Improve comments
+
 === 0.3.0 (July 20, 2013)
 
 * Rename organization's name to 'Bits.sass'
