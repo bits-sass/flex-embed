@@ -1,6 +1,6 @@
 {
   "name": "bits-sass-flex-embed",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Lukáš Mladý",
   "main": "_flex-embed.scss"
 }

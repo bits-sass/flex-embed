@@ -1,5 +1,7 @@
 === HEAD
 
+=== 0.3.1 (September 2, 2013)
+
 * Improve comments
 * Reorder properties
 * Use new style for comments
