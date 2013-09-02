@@ -2,6 +2,7 @@
 
 * Improve comments
 * Reorder properties
+* Use new style for comments
 
 === 0.3.0 (July 20, 2013)
 

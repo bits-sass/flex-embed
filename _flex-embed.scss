@@ -3,32 +3,13 @@
    ========================================================================== */
 
 /**
- * Variables
- *
- * It is recommended to override these.
- *
- * 1. Component namespace.
- * 2. Ratios to be generated.
- */
-
-$bits-components-ns: 'bits-' !default; /* 1 */
-$bits-flex-embed-ratios: /* 2 */ (
-  (16, 9)
-  (4, 3)
-) !default;
-
-/* -------------------------------------------------------------------------- */
-
-/**
  * Flexible media embeds
  *
  * For use with media embeds – such as videos, slideshows, or even images –
  * that need to retain a specific aspect ratio but adapt to the width of their
  * containing element.
  *
- * --------------
- * Example usage:
- * --------------
+ * Example HTML:
  *
  * <div class="FlexEmbed FlexEmbed--16by9">
  *   <iframe class="FlexEmbed-item" src="…"></iframe>
@@ -39,6 +20,27 @@ $bits-flex-embed-ratios: /* 2 */ (
  * </div>
  */
 
+/* Variables
+   ========================================================================== */
+
+/**
+ * Bits.sass components namespace
+ */
+
+$bits-components-ns: 'bits-' !default;
+
+/**
+ * Ratios to be generated
+ */
+
+$bits-flex-embed-ratios: /* 2 */ (
+  (16, 9)
+  (4, 3)
+) !default;
+
+/* Component
+   ========================================================================== */
+
 .#{$bits-components-ns}FlexEmbed {
   overflow: hidden;
   position: relative;
@@ -46,7 +48,8 @@ $bits-flex-embed-ratios: /* 2 */ (
   padding: 0;
 }
 
-/* -------------------------------------------------------------------------- */
+/* Descendants
+   ========================================================================== */
 
 /**
  * The use of an explicit descendant class makes this component more flexible.
@@ -66,22 +69,22 @@ $bits-flex-embed-ratios: /* 2 */ (
   height: 100%;
 }
 
+/* Component modifiers
+   ========================================================================== */
 
 /**
  * Modifiers with defined aspect ratios
  *
  * FlexEmbed--<X>by<Y>
  *
- * --------------
- * Example usage:
- * --------------
+ * Example:
  *
  * $bits-flex-embed-ratios: (
  *   (16 9)
  *   (4 3)
  * );
  *
- * <= output ==
+ * Output:
  *
  * .FlexEmbed--16by9 {
  *   padding-bottom: 56.25%;
@@ -90,8 +93,6 @@ $bits-flex-embed-ratios: /* 2 */ (
  * .FlexEmbed--4by3 {
  *   padding-bottom: 75%;
  * }
- *
- * == end ====>
  */
 
 @each $ratio in $bits-flex-embed-ratios {
