@@ -1,6 +1,7 @@
 === HEAD
 
 * Improve comments
+* Reorder properties
 
 === 0.3.0 (July 20, 2013)
 

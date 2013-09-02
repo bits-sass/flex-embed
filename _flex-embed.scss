@@ -40,8 +40,8 @@ $bits-flex-embed-ratios: /* 2 */ (
  */
 
 .#{$bits-components-ns}FlexEmbed {
-  position: relative;
   overflow: hidden;
+  position: relative;
   height: 0;
   padding: 0;
 }
